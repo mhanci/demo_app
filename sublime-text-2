@@ -1,0 +1,31 @@
+diff --git a/config/routes.rb b/config/routes.rb
+index ea4a195..c023975 100644
+--- a/config/routes.rb
++++ b/config/routes.rb
+@@ -1,4 +1,6 @@
+ DemoApp::Application.routes.draw do
++  resources :microposts
++
+   resources :users
+ 
+   # The priority is based upon order of creation:
+diff --git a/db/schema.rb b/db/schema.rb
+index e155c30..e9496d9 100644
+--- a/db/schema.rb
++++ b/db/schema.rb
+@@ -11,7 +11,14 @@
+ #
+ # It's strongly recommended to check this file into your version control system.
+ 
+-ActiveRecord::Schema.define(:version => 20120327181159) do
++ActiveRecord::Schema.define(:version => 20120404112347) do
++
++  create_table "microposts", :force => true do |t|
++    t.string   "content"
++    t.integer  "user_id"
++    t.datetime "created_at", :null => false
++    t.datetime "updated_at", :null => false
++  end
+ 
+   create_table "users", :force => true do |t|
+     t.string   "name"
